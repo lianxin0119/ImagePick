@@ -19,6 +19,20 @@
             android:name=".activity.PreviewActivity"
             android:launchMode="singleTask" />
 
+        <activity
+            android:name=".activity.ClipImageActivity"
+            android:launchMode="singleTask" />
+
+        <provider
+            android:name=".provider.ImageSelectorProvider"
+            android:authorities="${applicationId}.imageSelectorProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/image_selector_file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

@@ -9,7 +9,7 @@
         android:id="@+id/rl_top_bar"
         android:layout_width="match_parent"
         android:layout_height="44dp"
-        android:background="#373c3d"
+        android:background="@color/c_373c3d"
         android:orientation="vertical">
 
         <FrameLayout
@@ -126,7 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:background="#373c3d">
+        android:background="@color/c_373c3d">
 
         <FrameLayout
             android:id="@+id/btn_folder"

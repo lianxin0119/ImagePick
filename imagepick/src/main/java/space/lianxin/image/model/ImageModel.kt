@@ -60,15 +60,13 @@ object ImageModel {
     fun clearCache(context: Context) {
         isNeedCache = false
         observer?.let {
-            context.applicationContext.contentResolver.unregisterContentObserver(observer!!)
+            context.applicationContext.contentResolver.unregisterContentObserver(it)
             observer = null
         }
         Thread {
             synchronized(ImageModel::class.java) {
-                if (cacheImageList != null) {
-                    cacheImageList!!.clear()
-                    cacheImageList = null
-                }
+                cacheImageList?.clear()
+                cacheImageList = null
             }
         }.start()
     }

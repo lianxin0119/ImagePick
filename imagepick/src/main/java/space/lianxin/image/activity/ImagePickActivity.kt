@@ -265,7 +265,7 @@ class ImagePickActivity : AppCompatActivity() {
      */
     private fun setStatusBarColor() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = Color.parseColor("#373c3d")
+        window.statusBarColor = getColor(R.color.c_373c3d)
     }
 
     private fun initListener() {

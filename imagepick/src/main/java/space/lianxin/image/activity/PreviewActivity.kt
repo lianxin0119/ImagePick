@@ -13,7 +13,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import space.lianxin.image.ImagePick
@@ -115,10 +114,6 @@ class PreviewActivity : AppCompatActivity() {
 
         setStatusBarColor()
 
-        val lp = binding.rlTopBar.layoutParams as RelativeLayout.LayoutParams
-        lp.topMargin = getStatusBarHeight()
-        binding.rlTopBar.layoutParams = lp
-
         initListener()
         initViewPager()
 
@@ -134,7 +129,7 @@ class PreviewActivity : AppCompatActivity() {
     private fun setStatusBarColor() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = Color.parseColor("#373c3d")
+        window.statusBarColor = getColor(R.color.c_373c3d)
     }
 
     private fun initListener() {
@@ -282,18 +277,6 @@ class PreviewActivity : AppCompatActivity() {
         intent.putExtra(ImagePick.IS_CONFIRM, isConfirm)
         setResult(ImagePick.RESULT_CODE, intent)
         super.finish()
-    }
-
-    /**
-     * 获取状态栏高度
-     */
-    private fun getStatusBarHeight(): Int {
-        var result = 0
-        val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
-        if (resourceId > 0) {
-            result = resources.getDimensionPixelSize(resourceId)
-        }
-        return result
     }
 
 }

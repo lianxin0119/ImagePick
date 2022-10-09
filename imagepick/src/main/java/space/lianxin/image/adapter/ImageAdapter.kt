@@ -146,12 +146,12 @@ class ImageAdapter constructor(
                 // 超过最大限制
                 return notifyDataSetChanged()
             }
-            for (image in mImages!!) {
+            mImages?.forEach { image ->
                 if (path == image.path) {
                     if (!mSelectImages.contains(image)) {
                         mSelectImages.add(image)
                     }
-                    break
+                    return@forEach
                 }
             }
         }
@@ -255,7 +255,7 @@ class ImageAdapter constructor(
      */
     private fun clearImageSelect() {
         if (mImages != null && mSelectImages.size == 1) {
-            val index = mImages!!.indexOf(mSelectImages[0])
+            val index = mImages?.indexOf(mSelectImages[0]) ?: -1
             mSelectImages.clear()
             if (index != -1) {
                 notifyItemChanged(if (useCamera) index + 1 else index)

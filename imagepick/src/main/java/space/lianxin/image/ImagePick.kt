@@ -1,6 +1,7 @@
 package space.lianxin.image
 
 import android.app.Activity
+import space.lianxin.image.activity.ClipImageActivity
 import space.lianxin.image.activity.ImagePickActivity
 import space.lianxin.image.entity.RequestConfig
 
@@ -115,7 +116,7 @@ class ImagePick {
                 config.useCamera = true
             }
             if (config.isCrop) {
-
+                ClipImageActivity.startActivity(activity, requestCode, config)
             } else {
                 ImagePickActivity.startActivity(activity, requestCode, config)
             }
